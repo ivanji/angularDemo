@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="eventsApp">
+<head>
+	<meta charset="utf-8">
+	<title>My Super App</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/app.css" />
+</head>
+<body ng-controller="EventController" ng-cloak>
+	<header>
+		<nav class="navbar navbar-default">
+		  <div class="container">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="#">
+		        My Super App
+		      </a>
+		    </div>
+
+			<div class="collapse -bar-collapse">
+				<ul>
+					<li><a href="#">Home</a></li>
+				</ul>
+			</div>
+
+		  </div>
+		</nav>
+		
+	</header>
+
+	<div class="jumbotron">
+	  <div class="container">
+	    <img ng-src="{{cv.imgUrl}}" alt="{{cv.name}}" >
+	  </div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-12">
+				{{cv.name}} {{cv.lastname}}<br>
+				{{cv.title}}
+			</div>
+
+
+			<hr>
+
+
+			<h3>Sessions</h3>
+
+			<div class="col-sm-6 col-md-9 well" ng-repeat="session in cv.sessions">
+				<div class="well votinWdiget col-md-3">
+					<div class="votingButton" ng-click="upVoteSession(session)">
+						<i class="glyphicon glyphicon-chevron-up"></i>
+					</div>
+					<div>
+						{{session.upVoteCount}}
+					</div>
+					<div class="votingButton" ng-click="downVoteSession(session)">
+						<i class="glyphicon glyphicon-chevron-down"></i>
+					</div>
+				</div>
+				<div class="col-md-9">
+			      <img src="{{cv.imgUrl}}" alt="{cv.name}}" class="img-responsive" />
+			      
+			      <div class="caption">
+			        <h3>{{session.name}}</h3>
+			        <p>{{session.upVoteCount}}</p>
+			        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+			      </div>
+				</div>
+			</div>
+
+		
+		</div>
+	</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src="lib/angular/angular.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/controllers/EventController.js"></script>
+</body>
+</html>
